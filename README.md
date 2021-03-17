@@ -3,7 +3,7 @@ The plugin is an example for Sejoli custom payment gateway. send me any email fo
 
 At least you need :
 1. a PHP file to set filter hook to declare the payment gateway class
-2. a class that extends class SejoliRatapay, with CarbonFields loaded
+2. a class that extends class \\SejoliSA\\Payment, with CarbonFields loaded
 
 We need CarbonFields to set plugin options.
 
@@ -78,7 +78,7 @@ public function check_parse_query() {
     endif;
 
     if(
-        isset($wp_query->query_vars['duitku-method']) &&
+        isset($wp_query->query_vars['ratapay-method']) &&
         isset($wp_query->query_vars['action']) && !empty($wp_query->query_vars['action'])
     ) :
 
