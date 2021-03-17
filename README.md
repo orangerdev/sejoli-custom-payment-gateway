@@ -1,5 +1,5 @@
 # Custom payment gateway for Sejoli Membership Plugin
-The plugin is an example for Sejoli custom payment gateway
+The plugin is an example for Sejoli custom payment gateway. send me any email for further information: orangerdigiart@gmail.com
 
 At least you need :
 1. a PHP file to set filter hook to declare the payment gateway class
@@ -7,14 +7,14 @@ At least you need :
 
 We need CarbonFields to set plugin options.
 
-Hook filter that you need to use is <sejoli/payment/available-libraries>.
+Hook filter that you need to use is *sejoli/payment/available-libraries*.
 
 For payment gateway class, at least you need these properties :
 
-1. $id <string>, set the payment gateway ID, alphanumeric with dash only.
-2. $name <string>, set the payment gateway name.
-3. $title <string>, set the payment gateway title.
-4. $description <string>, set the payment gateway description.
+1. $id *string*, set the payment gateway ID, alphanumeric with dash only.
+2. $name *string*, set the payment gateway name.
+3. $title *string*, set the payment gateway title.
+4. $description *string*, set the payment gateway description.
 
 and for methods, you need these :
 
@@ -57,9 +57,9 @@ public function set_query_vars($vars)
 }
 ```
 
-you can change <ratapay> or <ratapay-method> to anything you desire.
+you can change *ratapay* or *ratapay-method* to anything you desire.
 
-and you need to use hook <parse_query> to do anything with the notification
+and you need to use hook *parse_query* to do anything with the notification
 
 ```php
 /**
@@ -98,7 +98,7 @@ public function check_parse_query() {
 }
 ```
 
-to display payment channel in checkout page, you need this method, hook with action sejoli/payment/payment-options
+to display payment channel in checkout page, you need this method, hook with action *sejoli/payment/payment-options*
 
 ```php
 /**
@@ -167,7 +167,7 @@ public function add_payment_options( array $options ) {
 }
 ```
 
-if your payment gateway need customer to do something in payment gateway website / redirect after invoice created, use action hook <sejoli/thank-you/render>
+if your payment gateway need customer to do something in payment gateway website / redirect after invoice created, use action hook *sejoli/thank-you/render*
 
 ```php
 /**
