@@ -47,7 +47,7 @@ final class SejoliRatapay extends \SejoliSA\Payment{
     /**
      * Set custom query vars
      * Hooked via filter query_vars, priority 100
-     * @since   1.3.0
+     * @since   1.0.0
      * @access  public
      * @param   array $vars
      * @return  array
@@ -109,7 +109,7 @@ final class SejoliRatapay extends \SejoliSA\Payment{
 		endif;
 
         if(
-            isset($wp_query->query_vars['duitku-method']) &&
+            isset($wp_query->query_vars['ratapay-method']) &&
             isset($wp_query->query_vars['action']) && !empty($wp_query->query_vars['action'])
         ) :
 
@@ -119,6 +119,8 @@ final class SejoliRatapay extends \SejoliSA\Payment{
 
 
             if('completed' === $action ) :
+
+                // Update order status
                 $this->complete_order( $order_id );
             else :
                 // ELSE ACTION
@@ -155,6 +157,7 @@ final class SejoliRatapay extends \SejoliSA\Payment{
 
     /**
      * Display ratapay payment options in checkout page
+     * Hooked via filter sejoli/payment/payment-options, priority 100
      * @since   1.0.0
      * @param   array $options
      * @return  array
@@ -239,7 +242,7 @@ final class SejoliRatapay extends \SejoliSA\Payment{
 
     /**
      * Set order meta data
-     * @since   1.3.0
+     * @since   1.0.0
      * @param   array $meta_data
      * @param   array $order_data
      * @param   array $payment_subtype
@@ -259,7 +262,7 @@ final class SejoliRatapay extends \SejoliSA\Payment{
     /**
      * Check if current order is using ratapay and will be redirected to ratapay payment channel options
      * Hooked via action sejoli/thank-you/render, priority 100
-     * @since   1.3.0
+     * @since   1.0.0
      * @param   array  $order Order data
      * @return  void
      */
